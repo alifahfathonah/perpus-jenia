@@ -1,18 +1,27 @@
 <?php 
-// koneksi database
+
+if (isset($_POST['edit'])) {
+
 include 'connect.php';
 
-// menangkap data yang di kirim dari form
-$id = $_POST['id'];
-$nama = $_POST['nama'];
+$id 	= $_POST['id'];
+$nama 	= $_POST['nama'];
 $alamat = $_POST['alamat'];
-$alamat = $_POST['telepon'];
-$email = $_POST['email'];
+$telepon= $_POST['telepon'];
+$email 	= $_POST['email'];
 
-// update data ke database
-mysqli_query($koneksi,"update penerbit set nama='$nama', alamat='$alamat', telepon='$telepon', email='$email' where id='$id'");
+$query = "UPDATE penerbit SET nama = '".$nama."', alamat = '".$alamat."', telepon = '".$telepon."', email = '".$email."' WHERE id = '".$id."' ";
 
-// mengalihkan halaman kembali ke index.php
-header("location:penerbit.php");
+  $result = mysqli_query($koneksi, $query);
+  
+  if(!$result) {
+    die ("Query gagal dijalankan: ".mysqli_errno($koneksi).
+       " - ".mysqli_error($koneksi));
+  }
+  header("location:penerbit.php");
+}
 
+echo "Gagal UPDATE";
+
+ 
 ?>

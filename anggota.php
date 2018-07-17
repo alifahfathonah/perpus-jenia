@@ -28,11 +28,11 @@
 <body id="page-top">
 	<div class="container">
 		<!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">Start Bootstrap</span>
         <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/woman.jpg" alt="">
+          <img src="img/woman.jpg" alt="">
         </span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,25 +44,25 @@
             <a class="nav-link js-scroll-trigger" href="home.html">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="kategori.php">Kategori</a>
+            <a class="nav-link js-scroll-trigger" href="buku.php">Buku</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="buku.php">Buku</a>
+            <a class="nav-link js-scroll-trigger" href="kategori.php">Kategori</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="penulis.php">Penulis</a>
           </li>
-          <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="penerbit.php">Penerbit</a>
           </li>
-          <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="anggota.php">Anggota</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards">Peminjaman</a>
+            <a class="nav-link js-scroll-trigger" href="petugas.php">Petugas</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards">Petugas</a>
+           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#awards">Peminjaman</a>
           </li>
            <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#awards">Log out</a>
@@ -70,6 +70,7 @@
         </ul>
       </div>
     </nav>
+  
 
 
 
