@@ -44,7 +44,7 @@
 			<table>
 				<tr>			
 					<td>
-						<input type="hidden" name="id" value=""/>
+						<input type="hidden" name="id" value="<?php echo $data['id']; ?>"/>
 						<input type="text" name="nama" value="<?php echo $data['nama']; ?>">
 						<input type="text" name="alamat" value="<?php echo $data['alamat']; ?>">
 						<input type="text" name="telepon" value="<?php echo $data['telepon']; ?>">

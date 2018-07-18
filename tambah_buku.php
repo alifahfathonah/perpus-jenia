@@ -1,3 +1,8 @@
+<?php
+include 'connect.php';
+?>
+
+
 <html>
 <title>PERPUSTAKAAN</title>
 <style>
@@ -72,17 +77,7 @@ input[type=submit]:hover {
 	<input type="text" name="nama"><br>
   <label>Tahun Terbit</label>
 	<input type="text" name="tahun_terbit"><br>
-<!--   <?php  
-                                  include 'connect.php'; 
-                                  $result = mysqli_query($koneksi,"select * from kategori");
-                                  echo '<select name="kategori" class="form-control">';
-                                  echo '<option>--kategori--</option>';
 
-                                  while ($row = mysqli_fetch_array($result)) {
-                                  echo '<option value="' . $row['id'] . '">' . $row['nama'] . '</option>';
-                                  }
-                                  echo '</select>';
-                              ?> --> 
    
 <label>Penulis</label>
  <?php
@@ -92,9 +87,7 @@ input[type=submit]:hover {
   <option value="">---pilih penulis---</option>
   <?php
   if ($read_penulis->num_rows > 0) {
-    # code...
-    while ($d=$read_penulis->fetch_assoc()) {
-      # code...
+    while ($d=$read_penulis->fetch_assoc()) { 
 ?>
 <option value="<?=$d['id'];?>"><?=$d['nama'];?></option>
 <?php
@@ -111,9 +104,8 @@ input[type=submit]:hover {
   <option value="">---pilih penerbit---</option>
   <?php
   if ($read_penerbit->num_rows > 0) {
-    # code...
+   
     while ($d=$read_penerbit->fetch_assoc()) {
-      # code...
 ?>
 <option value="<?=$d['id'];?>"><?=$d['nama'];?></option>
 <?php
@@ -130,9 +122,7 @@ input[type=submit]:hover {
   <option value="">---pilih kategori---</option>
   <?php
   if ($read_kategori->num_rows > 0) {
-    # code...
     while ($d=$read_kategori->fetch_assoc()) {
-      # code...
 ?>
 <option value="<?=$d['id'];?>"><?=$d['nama'];?></option>
 <?php

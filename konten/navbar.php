@@ -24,7 +24,7 @@
             <a class="nav-link js-scroll-trigger" href="#awards">Peminjaman</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards">Log out</a>
+            <a class="nav-link js-scroll-trigger" href="logout.php">Log out</a>
           </li>
         </ul>
         <?php

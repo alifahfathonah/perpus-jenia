@@ -1,3 +1,11 @@
+ <?php 
+  include 'connect.php';
+  session_start();
+  if($_SESSION['status']!="login"){
+    header("location:index.php?pesan=belum_login");
+  }
+  ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,45 +38,14 @@
  	<!-- NAVBAR -->
  	   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">Start Bootstrap</span>
-        <span class="d-none d-lg-block">
-          <img src="img/woman.jpg" alt="">
-        </span>
+        <span class="d-block d-lg-none">pERPUSTAKAAN WEBSITE</span>
+        <span class="d-none d-lg-block"></span>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="home.html">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="buku.php">Buku</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="kategori.php">Kategori</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="penulis.php">Penulis</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="penerbit.php">Penerbit</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="anggota.php">Anggota</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="petugas.php">Petugas</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards">Peminjaman</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards">Log out</a>
-          </li>
-        </ul>
+       <aside>
+      <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <?php include "konten/navbar.php";?>
       </div>
+      </aside>
     </nav>
 
 
