@@ -2,6 +2,7 @@
 // koneksi database 
 	include "connect.php";
 
+	$id = $_POST['id'];
 	$nam = $_POST['nama'];
 	$tah = $_POST['tahun_terbit'];
 	$pen = $_POST['penerbit'];

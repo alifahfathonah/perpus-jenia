@@ -49,7 +49,8 @@
     </nav>
  	
 	<br/>
-	<a href="tambah_penerbit.php"><button type="button" class="btn btn-warning">tambah penerbit</button></a>
+	 <a href="tambah_penerbit.php"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Tambah Penerbit</button></a>
+	
 	
 	<br/>
 	<br/>

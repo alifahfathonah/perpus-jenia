@@ -94,6 +94,7 @@ input[type=submit]:hover {
     <div class="container">
       <form action="editaksi_buku.php" enctype="multipart/form-data" method="POST" >
   <label>nama buku</label>
+  <input type="hidden" name="id" value="<?php echo $d['id']; ?>">
   <input type="text" name="nama" value="<?php echo $data['nama']; ?>"><br>
   <label>Tahun Terbit</label>
   <input type="text" name="tahun_terbit" value="<?php echo $data['tahun_terbit']; ?>"><br>

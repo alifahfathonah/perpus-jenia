@@ -52,7 +52,7 @@
 	<br/>
 
   <!-- Trigger the modal with a button -->
-  <a href="tambah_penulis.php"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Input Penulis</button></a>
+  <a href="tambah_penulis.php"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Tambah Penulis</button></a>
 	
 	<br/>
 	<br/>

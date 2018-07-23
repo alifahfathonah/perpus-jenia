@@ -52,7 +52,7 @@
 
 
 	<br/>
-	<a href="tambah_anggota.php"><button type="button" class="btn btn-warning">tambah anggota</button></a>
+	 <a href="tambah_anggota.php"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Tambah Anggota</button></a>
 	
 	<br/>
 	<br/>

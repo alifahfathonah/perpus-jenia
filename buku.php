@@ -49,8 +49,9 @@
       </aside>
     </nav>
 	<br/>
-	<a href="tambah_buku.php"><button type="button" class="btn btn-warning">tambah buku</button></a>
+	<a href="tambah_buku.php"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Tambah Buku</button></a><br><br>
 	
+	<label>Search: <input type="search"></label>
 	<br/>
 	<br/>
 	<table class="table table-hover" <!-- style="width: 3500px;" -->  

@@ -11,7 +11,8 @@ $email = $_POST['email'];
 $status_aktif = $_POST['status_aktif'];
  
 // update data ke database
-mysqli_query($koneksi,"update anggota set nama='$nama', alamat='$alamat', telepon='$telepon', email='$email', status_aktif='$status_aktif' where id='$id'");
+ if(!empty($_POST[password])){
+mysqli_query($koneksi,"update anggota set nama='$nama', alamat='$alamat', telepon='$telepon', email='$email', status_aktif='$status_aktif' where id_anggota='$id'");
  
 // mengalihkan halaman kembali ke 
  header("location:anggota.php");

@@ -51,7 +51,7 @@
 
 
 	<br/>
-	<a href="tambah_kategori.php"><button type="button" class="btn btn-warning">tambah kategori</button></a>
+	<a href="tambah_kategori.php"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Tambah Kategori</button></a>
 	
 	<br/>
 	<br/>
