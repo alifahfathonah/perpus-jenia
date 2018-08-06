@@ -61,5 +61,11 @@ class Penulis extends \yii\db\ActiveRecord
     ->all();
 }
 
+public function getJumlahBuku()
+{
+    return Buku::find()
+    ->andWhere(['id_penulis' => $this->id])
+    ->count();
+}
 }
 

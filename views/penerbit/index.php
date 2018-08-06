@@ -17,6 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Tambah Penerbit', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Export Word', ['export-word'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,8 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'nama',
             'alamat:ntext',
-            'telepon',
-            'email:email',
+            // 'telepon',
+            // 'email:email',
+             [
+                'label' => 'Jumlah Buku',
+                'value'=>function($data){
+                    return $data->getJumlahBuku();
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

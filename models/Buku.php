@@ -30,6 +30,12 @@ class Buku extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+     public static function getList()
+    {
+        return \yii\helpers\ArrayHelper::map(self::find()->all(), 'id', 'nama');
+    }
+     
     public function rules()
     {
         return [

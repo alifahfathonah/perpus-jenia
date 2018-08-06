@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\PeminjamanSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Peminjamen';
+$this->title = 'Peminjaman Buku';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="peminjaman-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Peminjaman', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tambah Peminjaman', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,7 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'id_buku',
             'id_anggota',
             'tanggal_pinjam',

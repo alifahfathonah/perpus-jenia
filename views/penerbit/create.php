@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Penerbit */
 
-$this->title = 'Create Penerbit';
-$this->params['breadcrumbs'][] = ['label' => 'Penerbits', 'url' => ['index']];
+$this->title = 'Tambah Penerbit';
+$this->params['breadcrumbs'][] = ['label' => 'Penerbit', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="penerbit-create">

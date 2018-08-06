@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\KategoriSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -17,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Tambah Kategori', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Export Word', ['export-word'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,6 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'nama',
+            [
+                'header'    => 'Jumlah Buku',
+                'value'     => function($model){
+                    return $model->getJumlahBuku();
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

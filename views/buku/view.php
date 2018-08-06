@@ -32,11 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             [
                 'label' => 'Nama (Tahun)',
-                'value' => $model->nama.  '('. $model->tahun_terbit. ')'
+                'value' => $model->nama .  '('. $model->tahun_terbit. ')'
             ],
             [
                 'attribute' => 'tahun_terbit',
-                'value' => $model->tahun_terbit. '  masehi'
+                'value' => $model->tahun_terbit. '  (Tahun)'
             ],
            [
                'attribute' =>'id_penulis',
@@ -73,9 +73,9 @@ $this->params['breadcrumbs'][] = $this->title;
               'format' =>'raw',
               'value' => function ($model){
                 if ($model->berkas != '') {
-                    return Html::a($model->berkas, ('@web/upload/berkas/'));
+                    return Html::a($model->berkas,   ('/../upload/berkas/'));
                 }else{
-                  return '<div align="center"><h1>No Image</h1></div>';
+                  return '<div align="center"><h1>No Berkas</h1></div>';
                 }
               },
             ],

@@ -18,11 +18,36 @@ class Peminjaman extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+
+     public static function getList()
+    {
+        return \yii\helpers\ArrayHelper::map(self::find()->all(), 'id', 'nama');
+    } 
     public static function tableName()
     {
         return 'peminjaman';
     }
 
+      public function getBuku()
+    {
+       $model = Buku::findOne($this->id_buku);
+       if ($model !==null) {
+         return $model->nama;
+       }else{
+        return null;
+       }
+    }
+
+public function getAnggota()
+    {
+       $model = Anggota::findOne($this->id_anggota);
+       if ($model !==null) {
+         return $model->nama;
+       }else{
+        return null;
+       }
+    }
     /**
      * {@inheritdoc}
      */
@@ -41,9 +66,8 @@ class Peminjaman extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'id_buku' => 'Id Buku',
-            'id_anggota' => 'Id Anggota',
+            'id_buku' => 'Nama Buku',
+            'id_anggota' => 'Nama Anggota',
             'tanggal_pinjam' => 'Tanggal Pinjam',
             'tanggal_kembali' => 'Tanggal Kembali',
         ];

@@ -46,6 +46,19 @@ class Kategori extends \yii\db\ActiveRecord
             'nama' => 'kategori',
         ];
     }
-   
+   public function getJumlahBuku()
+{
+    return Buku::find()
+    ->andWhere(['id_kategori' => $this->id])
+    ->count();
+}
+
+ public function findAllBuku()
+{
+    return Buku::find()
+    ->andWhere(['id_kategori' => $this->id])
+    ->orderBy(['nama'=> SORT_DESC])
+    ->all();
+}
     
 }

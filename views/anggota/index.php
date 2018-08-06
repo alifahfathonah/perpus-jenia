@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\AnggotaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Anggotas';
+$this->title = 'Anggota';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="anggota-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Anggota', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tambah Anggota', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -24,8 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'nama',
             'alamat',
             'telepon',

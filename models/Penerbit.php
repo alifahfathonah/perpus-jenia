@@ -52,4 +52,18 @@ class Penerbit extends \yii\db\ActiveRecord
             'email' => 'Email',
         ];
     }
+
+     public function findAllBuku()
+{
+    return Buku::find()
+    ->andWhere(['id_penerbit' => $this->id])
+    ->all();
+}
+
+    public function getJumlahBuku()
+{
+    return Buku::find()
+    ->andWhere(['id_penerbit' => $this->id])
+    ->count();
+}
 }

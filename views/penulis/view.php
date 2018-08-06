@@ -6,13 +6,13 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Penulis */
 
-$this->title = $model->id;
+$this->title = "Penulis: ".$model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Penulis', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = "Penulis: " . $model->nama;
 ?>
 <div class="penulis-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode("Penulis: ". $model->nama) ?></h1>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -28,11 +28,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'nama',
             'alamat:ntext',
             'telepon',
             'email:email',
+            [
+                'label' => 'Jumlah Buku',
+                'value'=>$model->getJumlahBuku()
+            ]
         ],
     ]) ?>
 
@@ -48,9 +51,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php $no=1; foreach ($model->findAllBuku() as $buku): ?>
         <tr>
             <td><?= $no; ?></td>
-            <td><?= $buku->nama; ?></td>
-            <td><?= Html::a("Edit", ["buku/update","id"=>$buku->id]); ?> &nbsp;
-                <?= Html::a("Hapus", ["buku/delete","id"=>$buku->id],['data-method'=>'post','data-confirm'=>'file akan di hapus?']); ?> &nbsp;
+            <td><?= Html::a($buku->nama, ['buku/view','id'=>$buku->id]); ?></td>
+            <td><?= Html::a("Edit", ["buku/update","id"=>$buku->id], ['class' => 'btn btn-primary']); ?> &nbsp;
+                <?= Html::a("Hapus", ["buku/delete","id"=>$buku->id],['class' => 'btn btn-primary'],['data-method'=>'post','data-confirm'=>'file akan di hapus?']); ?> &nbsp;
             </td>
         </tr>
         <?php $no++; endforeach ?>

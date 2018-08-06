@@ -8,12 +8,17 @@ use app\models\KategoriSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use PhpOffice\PhpWord\IOfactory;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Shared\Converter;
 
 /**
  * KategoriController implements the CRUD actions for Kategori model.
  */
 class KategoriController extends Controller
 {
+
+    public $layout = 'main';
     /**
      * {@inheritdoc}
      */
@@ -124,4 +129,81 @@ class KategoriController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionExportWord()
+    {
+        $phpWord = new phpWord();
+        $phpWord -> setDefaultFontSize(11);
+
+        $section = $phpWord->addSection(
+                [
+                    'marginTop' => Converter::cmTotwip(1.80),
+                    'marginBottom' => Converter::cmTotwip(1.80),
+                    'marginLeft' => Converter::cmTotwip(1.2),
+                    'marginRight' => Converter::cmTotwip(1.6),
+                ]
+        );  
+        $fontStyle = [
+            'underline' => 'dash',
+            'bold'      => true,
+            'italic'    => true,
+        ];
+
+        $bgColor = [
+            'bgColor' => '0000ff',
+        ];
+
+        $paragraphCenter = [
+                'alignment' =>'center',   
+            ];
+
+        $headerStyle = [
+                'bold' =>true,
+            ];
+
+        $section->addText(
+                'PERPUSTAKAAN ONLINE',
+                $bgColor,
+                $paragraphCenter
+        );
+
+        $section->addText(
+            'Jenia Adella',
+            $bgColor,
+            $paragraphCenter,
+            $headerStyle
+        );
+
+        $judul = $section->addTextRun($paragraphCenter);
+        $judul -> addText('Daftar Kategori', $fontStyle);
+        $judul = $section->addTextRun($paragraphCenter);
+
+        $judul ->addText('nama kategori', ['italic'=>true]);
+        $section-> addTextBreak(1);
+
+        $table = $section->addTable([
+            'alignment' => 'center',
+            'bgColor'   => '000000',
+            'borderSize' => 5,
+        ]);
+
+        $table->addRow(null);
+        $table->addCell(500)->addText('NO', $headerStyle, $paragraphCenter);
+        $table->addCell(5000)->addText('Nama Kategori', $headerStyle, $paragraphCenter);
+
+        $semuaKategori = Kategori::find()->all(); $nomor = 1;
+        foreach ($semuaKategori as $kategori ) {
+            $table->addRow(null);
+            $table->addCell(500)->addText($nomor++, null, $paragraphCenter);
+            $table->addCell(5000)->addText($kategori->nama,null, $paragraphCenter);  
+        }
+
+    
+     $filename = time() . 'export-word.docx';
+       $path = 'exportfile/'. $filename;
+       $xmlWriter = IOfactory::createWriter($phpWord,'Word2007');
+       $xmlWriter -> save($path);
+       return $this -> redirect($path);
+}
+
 }

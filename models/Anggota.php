@@ -27,6 +27,14 @@ class Anggota extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+
+      public static function getList()
+    {
+        return \yii\helpers\ArrayHelper::map(self::find()->all(), 'id', 'nama');
+    }
+     
+     
     public function rules()
     {
         return [
@@ -43,7 +51,6 @@ class Anggota extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
             'nama' => 'Nama',
             'alamat' => 'Alamat',
             'telepon' => 'Telepon',
@@ -51,4 +58,15 @@ class Anggota extends \yii\db\ActiveRecord
             'status_aktif' => 'Status Aktif',
         ];
     }
+
+    //   public static function getList()
+    // {
+    //     return \yii\helpers\ArrayHelper::map(Standard::find()->all()
+    //         if (status_aktif==1 {
+    //             return 'Aktif';
+    //         }else {
+    //             return 'Tidak Aktif';
+    //         }
+    // }
+
 }

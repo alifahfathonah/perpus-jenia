@@ -10,7 +10,6 @@ use app\models\Buku;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\BukuSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = 'Buku';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -21,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Tambah Buku', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Export Word', ['buku/jadwal-pl'], ['class' => 'btn btn-info']) ?>
     </p>
 
     <?= GridView::widget([
@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'tahun_terbit',
              [
                'attribute' =>'id_penulis',
+               'filter' => Penulis::getList(),
                'value' => function($data){
                 return $data->getPenulis();
                }
@@ -39,12 +40,14 @@ $this->params['breadcrumbs'][] = $this->title;
            ],
              [
                'attribute' =>'id_penerbit',
+               'filter' => Penerbit::getList(),
                'value' => function($data){
                 return $data->getPenerbit();
                }
            ],
            [
                'attribute' =>'id_kategori',
+               'filter' => Kategori::getList(),
                'value' => function($data){
                 return $data->getKategori();
                }
@@ -62,16 +65,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
               },
             ],
-           [
-              'attribute' => 'berkas',
-              'format' =>'raw',
-              'value' => function ($model){
-                if ($model->berkas != '') {
-                    return Html::a($model->berkas, ('@web/upload/berkas/'));
-                }else{
-                  return '<div align="center"><h5>Tidak ada berkas</h5></div>';
-                }
-              },
+          [
+                'attribute' => 'berkas',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    if ($model->berkas != '') {
+                        return '<a href="' . Yii::$app->homeUrl . '/../upload/berkas/' . $model->berkas . '"><div align="center"><button class="btn-primary glyphicon glyphicon-download" type="submit"></button></div></a>';
+                    } else { 
+                        return '<div align="center"><h1>No File</h1></div>';
+                    }
+                },
             ],
             ['class' => 'yii\grid\ActionColumn'],
         ],

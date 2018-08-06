@@ -6,12 +6,10 @@ use app\models\Penulis;
 use app\models\Penerbit;
 use app\models\Kategori;
 use kartik\select2\Select2;
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Buku */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
 <div class="buku-form">
 
     <?php $form = ActiveForm::begin(); ?>
@@ -41,9 +39,10 @@ use kartik\select2\Select2;
             ],
         ]); ?>
 
+<?php if ($model->id_kategori == null) { ?>
 
-     <?= $form->field($model, 'id_kategori')->widget(Select2::classname(), [
-            'data' =>  Penerbit::getList(),
+    <?= $form->field($model, 'id_kategori')->widget(Select2::classname(), [
+            'data' =>  Kategori::getList(),
             'options' => [
               'placeholder' => '- Pilih Kategori -',
             ],
@@ -51,6 +50,11 @@ use kartik\select2\Select2;
                 'allowClear' => true
             ],
         ]); ?>
+
+
+
+<?php  }  ?>
+     
 
 
     <?= $form->field($model, 'sinopsis')->textarea(['rows' => 6]) ?>
