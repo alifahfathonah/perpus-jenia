@@ -17,7 +17,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta charset="<?= Yii::$app->charset ?>" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=2" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -37,14 +37,14 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+                    <a href="/" class="site_title"><i class="fa fa-user"></i> <span>Admin Site!</span></a>
                 </div>
                 <div class="clearfix"></div>
 
                 <!-- menu prile quick info -->
                 <div class="profile">
                     <div class="profile_pic">
-                        <img src="http://placehold.it/128x128" alt="..." class="img-circle profile_img">
+                        <img src="../admin/me.jpg" class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -59,21 +59,23 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
                     <div class="menu_section">
-                        <h3>General</h3>
+                        <h3>fkfdkfks</h3>
                         <?=
                         \yiister\gentelella\widgets\Menu::widget(
                             [
                                 "items" => [
-                                    ["label" => "Home", "url" => ["/index"], "icon" => "home"],
+                                    ["label" => "Dashboard", "url" => ["/site/index"], "icon" => "home"],
                                     ["label" => "Buku", "url" => ["/buku/index"], "icon" => "book"],
-                                    ["label" => "Kategori", "url" => ["/"], "icon" => "columns"],
+                                    ["label" => "Kategori", "url" => ["/kategori/index"], "icon" => "columns"],
+                                    ["label" => "Penulis", "url" => ["/penulis/index"], "icon" => "male"],
+                                    ["label" => "Penerbit", "url" => ["/penerb/index"], "icon" => "male"],
                                     [
-                                        "label" => "Widgets",
+                                        "label" => "Peminjaman",
                                         "icon" => "th",
                                         "url" => "#",
                                         "items" => [
-                                            ["label" => "Menu", "url" => ["site/menu"]],
-                                            ["label" => "Panel", "url" => ["site/panel"]],
+                                            ["label" => "Anggota", "url" => ["/anggota/index"]],
+                                            ["label" => "Peminjaman Detail", "url" => ["/peminjaman/index"]],
                                         ],
                                     ],
                                     [

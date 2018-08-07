@@ -210,7 +210,7 @@ public function actionJadwalPl()
        $judul = $section->addTextRun($paragraphCenter);
 
        $judul->addText('Daftar Buku ', $fontStyle);
-        $judul = $section->addTextRun($paragraphCenter);
+      $judul = $section->addTextRun($paragraphCenter);
 
        $judul->addText('jeniaaaa ', ['italic' =>true]);
         $section->addTextBreak(1);

@@ -120,4 +120,9 @@ public function getPenerbit()
     {
         return "hai";
     }
+
+    public function getCount()
+    {
+        return static::find()->count();
+    }
 }

@@ -18,7 +18,7 @@ use PhpOffice\PhpWord\Shared\Converter;
 class PenerbitController extends Controller
 {
 
-    public $layout = 'tes';
+    public $layout = 'main';
     /**
      * {@inheritdoc}
      */

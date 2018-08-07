@@ -67,5 +67,10 @@ public function getJumlahBuku()
     ->andWhere(['id_penulis' => $this->id])
     ->count();
 }
+public function getPenulisCount()
+{
+     return static::find()->count();
+}
+
 }
 

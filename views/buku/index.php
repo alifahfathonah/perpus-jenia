@@ -27,12 +27,26 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'nama',
-            'tahun_terbit',
+           [
+                'class' => 'yii\grid\SerialColumn',
+                'header' => 'No',
+                'headerOptions' => ['style' => 'text-align:center'],
+                'contentOptions' => ['style' => 'text-align:center']
+            ],
+            [
+                'attribute' => 'nama',
+                'format' => 'raw',
+                'headerOptions' => ['style' => 'text-align:center;'],
+            ],
+             [
+                'attribute' => 'tahun_terbit',
+                'format' => 'raw',
+                'headerOptions' => ['style' => 'text-align:center;'],
+            ],
              [
                'attribute' =>'id_penulis',
                'filter' => Penulis::getList(),
+               'headerOptions' => ['style' => 'text-align:center;'],
                'value' => function($data){
                 return $data->getPenulis();
                }
@@ -41,6 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
              [
                'attribute' =>'id_penerbit',
                'filter' => Penerbit::getList(),
+               'headerOptions' => ['style' => 'text-align:center;'],
                'value' => function($data){
                 return $data->getPenerbit();
                }
@@ -48,6 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
            [
                'attribute' =>'id_kategori',
                'filter' => Kategori::getList(),
+               'headerOptions' => ['style' => 'text-align:center;'],
                'value' => function($data){
                 return $data->getKategori();
                }
@@ -55,8 +71,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'sinopsis:ntext',
             [
-              'attribute' => 'sampul',
+              'label' => 'sampul',
               'format' =>'raw',
+              'headerOptions' => ['style' => 'text-align:center;'],
               'value' => function ($model){
                 if ($model->sampul != '') {
                     return Html::img('@web/upload/sampul/'. $model->sampul,['class'=>'img-responsive','style' => 'height:150px', 'align'=>'center']);
@@ -66,11 +83,11 @@ $this->params['breadcrumbs'][] = $this->title;
               },
             ],
           [
-                'attribute' => 'berkas',
+                'label' => 'berkas',
                 'format' => 'raw',
                 'value' => function ($model) {
                     if ($model->berkas != '') {
-                        return '<a href="' . Yii::$app->homeUrl . '/../upload/berkas/' . $model->berkas . '"><div align="center"><button class="btn-primary glyphicon glyphicon-download" type="submit"></button></div></a>';
+                        return '<a href="' . Yii::$app->homeUrl . '/../upload/berkas/' . $model->berkas . '"><div align="center"><button class="glyphicon glyphicon-download-alt" size= "20px" type="submit"></button></div></a>';
                     } else { 
                         return '<div align="center"><h1>No File</h1></div>';
                     }

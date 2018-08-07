@@ -142,17 +142,19 @@ class KategoriController extends Controller
                     'marginLeft' => Converter::cmTotwip(1.2),
                     'marginRight' => Converter::cmTotwip(1.6),
                 ]
-        );  
+        );
+
+        $themeSize = [
+            'setDefaultFontName'=> 'Footlight MT Light',
+            'setDefaultFontSize'=> '11',
+            'bold' => true,
+        ];
+
         $fontStyle = [
-            'underline' => 'dash',
+            'underline' => 'single',
             'bold'      => true,
-            'italic'    => true,
+           
         ];
-
-        $bgColor = [
-            'bgColor' => '0000ff',
-        ];
-
         $paragraphCenter = [
                 'alignment' =>'center',   
             ];
@@ -161,42 +163,132 @@ class KategoriController extends Controller
                 'bold' =>true,
             ];
 
-        $section->addText(
-                'PERPUSTAKAAN ONLINE',
-                $bgColor,
+        $paragraphRight = [
+            'alignment'=>'right',
+        ];
+
+        // $spaceAfter = [
+        //     'spaceAfter'=> '0',
+        // ];
+        $paragraphJustify->setDefaultParagraphStyle(
+        array(
+        'align' => 'both',
+        'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(0),
+        'spacing' => 120,
+        'lineHeight' => 1,));
+
+
+
+        #############======END============##########
+
+        $section->addImage('../web/lmn.jpg', array('width' => 100 , 'height' => 50, 'alignment' => 'center'));
+        $section->addText( 
+                'LEMBAGA ADMINISTRASI NEGARA',
+                $themeSize,
                 $paragraphCenter
         );
 
         $section->addText(
-            'Jenia Adella',
-            $bgColor,
+            'REPUBLIK INDONESIA',
+            $paragraphJustify,
+            ['alignment'=>'center', 'bold'=> true]);
+
+          $section->addTextBreak(1);
+
+        $section->addText(
+            'UNDANGAN SURVEY HARGA',
+            $fontStyle,
             $paragraphCenter,
             $headerStyle
         );
+    
+          
+        $tempat = $section->addTextRun($paragraphRight);
+         $section->addText('Nomor  :  151/PP/PBJ 01.02/450417');
+        $tempat->addText('Jakarta, 9 Mei 2018', ['alignment'=>'right']);
+        $section->addText('Lampiran    :   1 (satu) berkas');
 
-        $judul = $section->addTextRun($paragraphCenter);
-        $judul -> addText('Daftar Kategori', $fontStyle);
-        $judul = $section->addTextRun($paragraphCenter);
+        $section->addTextBreak(1);
 
-        $judul ->addText('nama kategori', ['italic'=>true]);
-        $section-> addTextBreak(1);
+        $section->addText('Kepada Yth.');
 
-        $table = $section->addTable([
-            'alignment' => 'center',
-            'bgColor'   => '000000',
-            'borderSize' => 5,
-        ]);
+        $section->addText('Sdr. Thomas Alfa Edison', $headerStyle);
 
-        $table->addRow(null);
-        $table->addCell(500)->addText('NO', $headerStyle, $paragraphCenter);
-        $table->addCell(5000)->addText('Nama Kategori', $headerStyle, $paragraphCenter);
+         $section->addText('di Karawang');
 
-        $semuaKategori = Kategori::find()->all(); $nomor = 1;
-        foreach ($semuaKategori as $kategori ) {
-            $table->addRow(null);
-            $table->addCell(500)->addText($nomor++, null, $paragraphCenter);
-            $table->addCell(5000)->addText($kategori->nama,null, $paragraphCenter);  
-        }
+         $perihal = $section->addTextRun($paragraphJustify);
+
+        $perihal->addText('Perihal : ');
+        $perihal->addText('Penawaran Pengadaan Langsung untuk paket Pekerjaan Pembangunan Sistem Informasi Pengadaan (SIP) Kantor LAN Jakarta');
+
+         $section->addTextBreak(1);
+
+         $section->addText(
+            'Dengan ini perusahaan Saudara kami undang untuk memberikan penawaran harga proses Pengadaan Langsung paket Pengadaan Jasa Konsultansi sebagai berikut :');
+
+         $section->addText(
+            '1. Paket Pekerjaan', $headerStyle);
+
+         $section->addText(
+            'Nama paket pekerjaan : Pembangunan Sistem Informasi Pengadaan (SIP) Kantor LAN Jakarta',$paragraphCenter);
+
+         $section->addText(
+            'Lingkup pekerjaan : Pembangunan Sistem Informasi Pengadaan (SIP)',$paragraphCenter);
+
+         $section->addText(
+            'Nilai total HPS : Rp. 10.000.000,- (Sepuluh juta rupiah)', $headerStyle);
+
+         $section->addText(
+            'Sumber pendanaan : DIPA Satker 450417 LAN Jakarta Tahun Anggaran 2018');
+
+         $section->addText(
+            '2. Pelaksanaan Pengadaan',$headerStyle);
+
+         $section->addText('Tempat dan alamat : Kantor LAN Jakarta, Jl. Veteran No. 10, Jakarta pusat');
+
+         $section->addText('Telepon/Fax : 021 - 3868201-06/021-3455021');
+
+         $webSite = $section->addTextRun(null);
+         $webSite->addText('Website : ');
+         $webSite->addText('www.lan.go.id',['underline'=> 'single']);
+
+        $terlampir = $section->addTextRun();
+        $terlampir->addText('dengan Daftar Kuantitas dan Harga (RAB) serta KAK ');
+        $terlampir->addText('TERLAMPIR.',$headerStyle);
+
+        $palingLambat = $section->addTextRun();
+        $palingLambat->addText('Apabila Saudara membutuhkan keterangan dan penjelasan lebih lanjut, dapat menghubungi Kami sesuai alamat tersebut di atas dan batas akhir penyerahan penawaran melalui email ');
+        $palingLambat->addText('paling lambat sampai dengan hari Senin/14 Mei 2018.', $headerStyle);
+
+        $section->addText('Bagi penyedia yang menyampaikan penawaran terendah dan memenuhi persyaratan kualifikasi yaitu memiliki :');
+
+    $section->addText(
+    '1. KTP yang masih berlaku;', $headerStyle);
+
+    $section->addText(
+    '2. NPWP;', $headerStyle);
+
+     $section->addText(
+    '3. Pajak Tahunan Perorangan Tahun 2017 beserta lampirannya;', $headerStyle);
+
+     $section->addText(
+    '4. Ijazah Pendidikan Terakhir;', $headerStyle);
+
+      $section->addText(
+    '5. Sertifikat Keahlian dibidang yang sesuai dan masih berlaku.', $headerStyle);
+
+      $section->addTextBreak(1);
+
+      $section->addText(
+        'akan diundang untuk memasukkan penawaran dan dilakukan klarifikasi terhadap keaslian dokumen kualifikasi.'
+      );
+
+       $section->addTextBreak(1);
+
+       $section->addText(
+        'Demikian disampaikan untuk diketahui.'
+      );
+
 
     
      $filename = time() . 'export-word.docx';

@@ -19,6 +19,12 @@ class Anggota extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+     public function getAnggotaCount()
+    {
+       return static::find()->count();
+    }
+    
     public static function tableName()
     {
         return 'anggota';
