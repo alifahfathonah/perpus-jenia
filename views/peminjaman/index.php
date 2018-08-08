@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Buku;
+use app\models\Anggota;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\PeminjamanSearch */
@@ -25,9 +27,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id_buku',
-            'id_anggota',
-            'tanggal_pinjam',
+            [
+               'attribute' =>'id_buku',
+               'filter' => Buku::getList(),
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'value' => function($data){
+                return $data->getBuku();
+               }
+           ],
+             [
+               'attribute' =>'id_anggota',
+               'filter' => Anggota::getList(),
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'value' => function($data){
+                return $data->getAnggota();
+               }
+           ],
+           'tanggal_pinjam',
             'tanggal_kembali',
 
             ['class' => 'yii\grid\ActionColumn'],

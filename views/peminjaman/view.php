@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Peminjaman */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Peminjamen', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Peminjaman', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="peminjaman-view">
@@ -28,7 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'id_buku',
             'id_anggota',
             'tanggal_pinjam',

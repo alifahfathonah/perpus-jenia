@@ -72,5 +72,20 @@ public function getPenulisCount()
      return static::find()->count();
 }
 
+ public static function getGrafikList()
+    {
+        $data = [];
+        foreach (static::find()->all() as $penulis) {
+            $data[] = [$penulis->nama, (int) $penulis->getManyBuku()->count()];
+        }
+        return $data;
+    }
+
+ public function getManyBuku()
+    {
+        return $this->hasMany(Buku::class, ['id_penulis' => 'id']);
+    }
+
+
 }
 

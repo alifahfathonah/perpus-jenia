@@ -134,6 +134,7 @@ class KategoriController extends Controller
     {
         $phpWord = new phpWord();
         $phpWord -> setDefaultFontSize(11);
+        $phpWord -> setDefaultFontName('Footlight MT Light');
 
         $section = $phpWord->addSection(
                 [
@@ -143,12 +144,6 @@ class KategoriController extends Controller
                     'marginRight' => Converter::cmTotwip(1.6),
                 ]
         );
-
-        $themeSize = [
-            'setDefaultFontName'=> 'Footlight MT Light',
-            'setDefaultFontSize'=> '11',
-            'bold' => true,
-        ];
 
         $fontStyle = [
             'underline' => 'single',
@@ -170,10 +165,10 @@ class KategoriController extends Controller
         // $spaceAfter = [
         //     'spaceAfter'=> '0',
         // ];
-        $paragraphJustify->setDefaultParagraphStyle(
+        $phpWord->setDefaultParagraphStyle(
         array(
         'align' => 'both',
-        'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(0),
+        'spaceAfter' => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(1),
         'spacing' => 120,
         'lineHeight' => 1,));
 
@@ -181,17 +176,19 @@ class KategoriController extends Controller
 
         #############======END============##########
 
-        $section->addImage('../web/lmn.jpg', array('width' => 100 , 'height' => 50, 'alignment' => 'center'));
+        $section->addImage('../web/lmn.jpg', array('width' => 100 , 'height' => 100, 'alignment' => 'center'));
         $section->addText( 
                 'LEMBAGA ADMINISTRASI NEGARA',
-                $themeSize,
+                $phpWord,
                 $paragraphCenter
         );
 
         $section->addText(
             'REPUBLIK INDONESIA',
-            $paragraphJustify,
-            ['alignment'=>'center', 'bold'=> true]);
+             $phpWord,
+            $paragraphCenter
+           
+        );
 
           $section->addTextBreak(1);
 
@@ -201,7 +198,7 @@ class KategoriController extends Controller
             $paragraphCenter,
             $headerStyle
         );
-    
+        $section->addTextBreak(1);
           
         $tempat = $section->addTextRun($paragraphRight);
          $section->addText('Nomor  :  151/PP/PBJ 01.02/450417');
@@ -216,7 +213,7 @@ class KategoriController extends Controller
 
          $section->addText('di Karawang');
 
-         $perihal = $section->addTextRun($paragraphJustify);
+         $perihal = $section->addTextRun($phpWord);
 
         $perihal->addText('Perihal : ');
         $perihal->addText('Penawaran Pengadaan Langsung untuk paket Pekerjaan Pembangunan Sistem Informasi Pengadaan (SIP) Kantor LAN Jakarta');
@@ -225,6 +222,7 @@ class KategoriController extends Controller
 
          $section->addText(
             'Dengan ini perusahaan Saudara kami undang untuk memberikan penawaran harga proses Pengadaan Langsung paket Pengadaan Jasa Konsultansi sebagai berikut :');
+$section->addTextBreak(1);
 
          $section->addText(
             '1. Paket Pekerjaan', $headerStyle);

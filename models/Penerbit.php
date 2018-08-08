@@ -66,4 +66,10 @@ class Penerbit extends \yii\db\ActiveRecord
     ->andWhere(['id_penerbit' => $this->id])
     ->count();
 }
+
+public function getPenerbitCount()
+{
+     return static::find()->count();
+}
+
 }

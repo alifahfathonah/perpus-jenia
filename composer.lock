@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0785f0861b2f14930cd1a5b5f939044b",
+    "content-hash": "5d765b7cfe9121248f1ffe4ccf1ec5b2",
     "packages": [
         {
             "name": "2amigos/yii2-date-picker-widget",
@@ -109,6 +109,25 @@
             "type": "bower-asset",
             "license": [
                 "Apache-2.0"
+            ]
+        },
+        {
+            "name": "bower-asset/chartjs",
+            "version": "v2.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chartjs/Chart.js.git",
+                "reference": "40d76b6a7ba14aeac69b05ad15d713c3402867b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chartjs/Chart.js/zipball/40d76b6a7ba14aeac69b05ad15d713c3402867b2",
+                "reference": "40d76b6a7ba14aeac69b05ad15d713c3402867b2",
+                "shasum": null
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
             ]
         },
         {
@@ -287,6 +306,52 @@
                 "markdown-extra"
             ],
             "time": "2017-07-16T21:13:23+00:00"
+        },
+        {
+            "name": "enscope/yii2-chartjs-widget",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/enscope/yii2-chartjs-widget.git",
+                "reference": "481bc572ef796775284422630400937a110b8bc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/enscope/yii2-chartjs-widget/zipball/481bc572ef796775284422630400937a110b8bc0",
+                "reference": "481bc572ef796775284422630400937a110b8bc0",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/chartjs": "2.1.4"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "enscope\\Yii2ChartJs\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Miro Hudak - enscope, s.r.o.",
+                    "email": "mhudak@dev.enscope.com",
+                    "homepage": "http://enscope.com"
+                }
+            ],
+            "description": "Yii2 chart.js 2.0 widget",
+            "homepage": "http://www.enscope.com",
+            "keywords": [
+                "chart",
+                "chartjs",
+                "chartjs2",
+                "extension",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-06-07T11:07:25+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",

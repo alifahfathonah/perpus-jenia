@@ -60,5 +60,20 @@ class Kategori extends \yii\db\ActiveRecord
     ->orderBy(['nama'=> SORT_DESC])
     ->all();
 }
+
+ public static function getGrafikList()
+    {
+        $data = [];
+        foreach (static::find()->all() as $kategori) {
+            $data[] = [$kategori->nama, (int) $kategori->getManyBuku()->count()];
+        }
+        return $data;
+    }
+
+ public function getManyBuku()
+    {
+        return $this->hasMany(Buku::class, ['id_kategori' => 'id']);
+    }
+
     
 }

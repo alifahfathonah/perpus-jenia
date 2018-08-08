@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Tambah Buku', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
-        <?= Html::a('Export Word', ['buku/jadwal-pl'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Export Word', ['buku/jadwal-pl'], ['class' => 'btn btn-round btn-danger']) ?>
     </p>
 
     <?= GridView::widget([

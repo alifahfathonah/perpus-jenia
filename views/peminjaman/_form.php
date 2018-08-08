@@ -25,7 +25,7 @@ use app\models\Anggota;
             ],
         ]); ?>
 
-   <?= $form->field($model, 'id_angggota')->widget(Select2::classname(), [
+   <?= $form->field($model, 'id_anggota')->widget(Select2::classname(), [
             'data' =>  Anggota::getList(),
             'options' => [
               'placeholder' => '- Pilih Anggota -',

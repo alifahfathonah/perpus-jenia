@@ -107,6 +107,16 @@ public function getPenerbit()
         return null;
        }
     }
+
+     public function getBuku()
+    {
+       $model = Penulis::findOne($this->id_buku);
+       if ($model !==null) {
+         return $model->nama;
+       }else{
+        return null;
+       }
+    }
     public static function halo()
     {
         return "selamat datang";
