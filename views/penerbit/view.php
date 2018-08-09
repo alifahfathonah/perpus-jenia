@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Penerbit */
 
-$this->title = $model->id;
+$this->title = "Penerbit: ".$model->nama;
 $this->params['breadcrumbs'][] = ['label' => 'Penerbit', 'url' => ['index']];
 $this->params['breadcrumbs'][] = "Penerbit:". $model->nama;
 ?>

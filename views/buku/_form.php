@@ -6,6 +6,8 @@ use app\models\Penulis;
 use app\models\Penerbit;
 use app\models\Kategori;
 use kartik\select2\Select2;
+use kartik\file\FileInput;
+use dosamigos\tinymce\TinyMce;
 /* @var $this yii\web\View */
 /* @var $model app\models\Buku */
 /* @var $form yii\widgets\ActiveForm */
@@ -56,13 +58,30 @@ use kartik\select2\Select2;
 <?php  }  ?>
      
 
+ <?= $form->field($model, 'sinopsis')->widget(TinyMce::className(), [
+        'options' => ['rows' => 6],
+        'language' => 'es',
+        'clientOptions' => [
+            'plugins' => [
+                "advlist autolink lists link charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        ]
+    ]);?>
 
-    <?= $form->field($model, 'sinopsis')->textarea(['rows' => 6]) ?>
+  <?= $form->field($model, 'sampul')->widget(FileInput::classname(), [
+        'data' => $model->sampul,
+        'options' => ['multiple' => true],
+        
+    ]); ?>
 
-    <?= $form->field($model, 'sampul')->fileInput() ?>
-
-    <?= $form->field($model, 'berkas')->fileInput() ?>
-
+    <?= $form->field($model, 'berkas')->widget(FileInput::classname(), [
+        'data' => $model->berkas,
+        'options' => ['multiple' => true],
+       
+    ]); ?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

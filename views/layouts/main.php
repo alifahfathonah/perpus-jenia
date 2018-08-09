@@ -78,6 +78,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                             ["label" => "Peminjaman Detail", "url" => ["/peminjaman/index"]],
                                         ],
                                     ],
+                                      ["label" => "User", "url" => ["#"], "icon" => "user"],
+                                    ["label" => "Logout", "url" => ["/site/logout"], "icon" => "power-off"],
                                 ],
                             ]
                         )

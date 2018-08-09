@@ -108,28 +108,15 @@ public function getPenerbit()
        }
     }
 
-     public function getBuku()
-    {
-       $model = Penulis::findOne($this->id_buku);
-       if ($model !==null) {
-         return $model->nama;
-       }else{
-        return null;
-       }
-    }
-    public static function halo()
-    {
-        return "selamat datang";
-    }
-     public static function haloLagi()
-    {
-        return "selamat datang lagi";
-    }
-
-    public function helo()
-    {
-        return "hai";
-    }
+    //  public function getBuku()
+    // {
+    //    $model = Penulis::findOne($this->id_buku);
+    //    if ($model !==null) {
+    //      return $model->nama;
+    //    }else{
+    //     return null;
+    //    }
+    // }
 
     public function getCount()
     {

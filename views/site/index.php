@@ -7,7 +7,7 @@ use app\models\Penulis;
 use app\models\Penerbit;
 use app\models\Kategori;
 use miloschuman\highcharts\Highcharts;
-use enscope\chartjs\ChartJs;
+use yiier\chartjs\ChartJs;
 // use dosamigos\chartjs\ChartJs;
 /* @var $this yii\web\View */
 
@@ -92,7 +92,7 @@ $this->title = "Halaman Dashboard";
                         'title' => ['text' => 'BUKU BERDASARKAN KATEGORI'],
                         'exporting' => ['enabled' => true],
                         'plotOptions' => [
-                            'pie' => [
+                            'bar' => [
                                 'cursor' => 'pointer',
                             ],
                         ],
@@ -125,7 +125,28 @@ $this->title = "Halaman Dashboard";
 
                     <!-- <canvas id="mybarChart"> -->
                         <div class="box-body">
-             
+                                        <?= ChartJs::widget([
+                'type' => 'bar',
+                'options' => [
+                    'height' => 200,
+                    'width' => 600,
+                    'color' => 'bg-green'
+                ],
+                'data' => [
+                    'labels' => ["January", "February", "March", "April", "May", "June", "July"],
+                     'datasets' => [
+                         [
+                             'label'=> '# of Votes',
+                             'data' => [65, 59, 90, 81, 56, 55, 40]
+                         ],
+                         [
+                             'label'=> '# of Votes',
+                             'data' => [28, 48, 40, 19, 96, 27, 100]
+                         ]
+                     ]
+                ]
+            ]);?>
+                         
         </div> 
 
                    <!--  </canvas> -->
