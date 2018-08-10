@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                'filter' => Penulis::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
                'value' => function($data){
-                return $data->getPenulis();
+                return $data->penulis->nama;
                }
                // 'filter' => Html::activeDropDownList($searchModel, 'id_penulis',$penulis, ['class'=>'form-control'])
            ],
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                'filter' => Penerbit::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
                'value' => function($data){
-                return $data->getPenerbit();
+                return $data->penerbit->nama;
                }
            ],
            [

@@ -30,12 +30,12 @@ class SiteController extends Controller
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+            // 'verbs' => [
+            //     'class' => VerbFilter::className(),
+            //     'actions' => [
+            //         'logout' => ['post'],
+            //     ],
+            // ],
         ];
     }
 
@@ -63,7 +63,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
-        return $this->render('index');
+     return $this->render('index');
     }
 
     /**
@@ -73,6 +73,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        // $this ->layout ='login';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }

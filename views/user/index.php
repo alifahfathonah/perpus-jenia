@@ -4,20 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\AnggotaSearch */
+/* @var $searchModel app\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Anggota';
+$this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="anggota-index">
+<div class="user-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Tambah Anggota', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Export pdf', ['report-pdf'], ['class' => 'btn btn-round btn-danger']) ?>
+        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,11 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'nama',
-            'alamat',
-            'telepon',
-            'email:email',
-            //'status_aktif',
+
+            'id',
+            'username',
+            'password',
+            'id_anggota',
+            'id_petugas',
+            //'id_user_role',
+            //'status',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

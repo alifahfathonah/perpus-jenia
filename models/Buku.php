@@ -64,40 +64,40 @@ class Buku extends \yii\db\ActiveRecord
             'berkas' => 'Berkas',
         ];
     }
-    // public function getPenulis()
-    // {
-    //     return $this->hasOne(Penulis::className(), ['id' => 'id_penulis']);
-    // }
+    public function getPenulis()
+    {
+        return $this->hasOne(Penulis::className(), ['id' => 'id_penulis']);
+    }
 
-    //  public function getPenerbit()
-    // {
-    //     return $this->hasOne(Penerbit::className(), ['id' => 'id_penerbit']);
-    // }
+     public function getPenerbit()
+    {
+        return $this->hasOne(Penerbit::className(), ['id' => 'id_penerbit']);
+    }
     
     // public function getKategori()
     // {
     //     return $this->hasOne(Penerbit::className(), ['id' => 'id_kategori']);
     // }
     
-    public function getPenulis()
-    {
-       $model = Penulis::findOne($this->id_penulis);
-       if ($model !==null) {
-         return $model->nama;
-       }else{
-        return null;
-       }
-    }
+    // public function getPenulis()
+    // {
+    //    $model = Penulis::findOne($this->id_penulis);
+    //    if ($model !==null) {
+    //      return $model->nama;
+    //    }else{
+    //     return null;
+    //    }
+    // }
 
-public function getPenerbit()
-    {
-       $model = Penerbit::findOne($this->id_penerbit);
-       if ($model !==null) {
-         return $model->nama;
-       }else{
-        return null;
-       }
-    }
+// public function getPenerbit()
+//     {
+//        $model = Penerbit::findOne($this->id_penerbit);
+//        if ($model !==null) {
+//          return $model->nama;
+//        }else{
+//         return null;
+//        }
+//     }
     public function getKategori()
     {
        $model = Kategori::findOne($this->id_kategori);

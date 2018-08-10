@@ -78,8 +78,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                             ["label" => "Peminjaman Detail", "url" => ["/peminjaman/index"]],
                                         ],
                                     ],
-                                      ["label" => "User", "url" => ["#"], "icon" => "user"],
-                                    ["label" => "Logout", "url" => ["/site/logout"], "icon" => "power-off"],
+                                      ["label" => "User", "url" => ["user/index"], "icon" => "user"],
+                                    ["label" => "Logout", "url" => ["/site/login"], "icon" => "power-off"],
                                 ],
                             ]
                         )
@@ -135,7 +135,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 <li>
                                     <a href="javascript:;">Help</a>
                                 </li>
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <li><?=Html::a('<i class ="fa fa-sign-out"> </i> Logout ', ['site/logout']); ?>
                                 </li>
                             </ul>
                         </li>

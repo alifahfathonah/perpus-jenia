@@ -41,6 +41,17 @@ use dosamigos\tinymce\TinyMce;
             ],
         ]); ?>
 
+
+     <?= $form->field($model, 'id_kategori')->widget(Select2::classname(), [
+            'data' =>  Kategori::getList(),
+            'options' => [
+              'placeholder' => '- Pilih kategori -',
+            ],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]); ?>
+
 <?php if ($model->id_kategori == null) { ?>
 
     <?= $form->field($model, 'id_kategori')->widget(Select2::classname(), [
