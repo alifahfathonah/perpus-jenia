@@ -6,26 +6,10 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Kategori */
 
-$this->title = "Kategori: ".$model->nama;
-$this->params['breadcrumbs'][] = ['label' => 'Kategori', 'url' => ['index']];
-$this->params['breadcrumbs'][] ="Kategori: " . $model->nama;
 ?>
 <div class="kategori-view">
 
     <h1><?= Html::encode( "Kategori: ". $model->nama) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-
-        <?= Html::a('Generate PDF', ['gen-pdf', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-    </p>
 
     <?= DetailView::widget([
         'model' => $model,

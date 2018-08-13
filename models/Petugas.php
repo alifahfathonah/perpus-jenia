@@ -18,6 +18,10 @@ class Petugas extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+     public static function getList()
+    {
+        return \yii\helpers\ArrayHelper::map(self::find()->all(), 'id', 'nama');
+    }
     public static function tableName()
     {
         return 'petugas';

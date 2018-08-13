@@ -25,10 +25,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'nama',
+           [
+                'class' => 'yii\grid\SerialColumn',
+                'header' => 'No.',
+                'headerOptions' => ['style' => 'text-align:center'],
+                'contentOptions' => ['style' => 'text-align:center']
+            ],
+            [
+               'attribute' =>'nama',
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center']
+           ],
             [
                 'header'    => 'Jumlah Buku',
+                'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center'],
                 'value'     => function($model){
                     return $model->getJumlahBuku();
                 }

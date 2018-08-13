@@ -25,12 +25,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
+           [
+                'class' => 'yii\grid\SerialColumn',
+                'header' => 'No.',
+                'headerOptions' => ['style' => 'text-align:center'],
+                'contentOptions' => ['style' => 'text-align:center']
+            ],
             [
                'attribute' =>'id_buku',
                'filter' => Buku::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
                 return $data->getBuku();
                }
@@ -39,12 +44,21 @@ $this->params['breadcrumbs'][] = $this->title;
                'attribute' =>'id_anggota',
                'filter' => Anggota::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
                 return $data->getAnggota();
                }
            ],
-           'tanggal_pinjam',
-            'tanggal_kembali',
+            [
+               'attribute' =>'tanggal_pinjam',
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center']
+           ],
+            [
+               'attribute' =>'tanggal_kembali',
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center']
+           ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

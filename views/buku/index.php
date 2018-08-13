@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
            [
                 'class' => 'yii\grid\SerialColumn',
-                'header' => 'No',
+                'header' => 'No.',
                 'headerOptions' => ['style' => 'text-align:center'],
                 'contentOptions' => ['style' => 'text-align:center']
             ],
@@ -37,16 +37,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'nama',
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'text-align:center;'],
+                'contentOptions' => ['style' => 'text-align:center']
             ],
              [
                 'attribute' => 'tahun_terbit',
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'text-align:center;'],
+                'contentOptions' => ['style' => 'text-align:center']
             ],
              [
                'attribute' =>'id_penulis',
                'filter' => Penulis::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
                 return $data->penulis->nama;
                }
@@ -56,6 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
                'attribute' =>'id_penerbit',
                'filter' => Penerbit::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
                 return $data->penerbit->nama;
                }
@@ -64,6 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                'attribute' =>'id_kategori',
                'filter' => Kategori::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
                 return $data->getKategori();
                }

@@ -24,11 +24,32 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'nama',
-            'alamat',
-            'telepon',
-            'email:email',
+            [
+                'class' => 'yii\grid\SerialColumn',
+                'header' => 'No.',
+                'headerOptions' => ['style' => 'text-align:center'],
+                'contentOptions' => ['style' => 'text-align:center']
+            ],
+            [
+               'attribute' =>'nama',
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center']
+           ],
+           [
+               'attribute' =>'alamat',
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center']
+           ],
+             [
+               'attribute' =>'telepon',
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center']
+           ],
+             [
+               'attribute' =>'email',
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'contentOptions' => ['style' => 'text-align:center']
+           ],
             //'status_aktif',
 
             ['class' => 'yii\grid\ActionColumn'],
