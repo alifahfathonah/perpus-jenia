@@ -40,22 +40,26 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
            [
                'attribute' =>'id_penulis',
+               'headerOptions' => ['style' => 'text-align:center;'],
                'value' => function($data){
-                return $data->getPenulis();
+                return $data->penulis->nama;
                }
            ],
-           [
+          [
                'attribute' =>'id_penerbit',
+               'headerOptions' => ['style' => 'text-align:center;'],
                'value' => function($data){
-                return $data->getPenerbit();
+                return $data->penerbit->nama;
                }
            ],
-           [
+            [
                'attribute' =>'id_kategori',
+               'headerOptions' => ['style' => 'text-align:center;'],
                'value' => function($data){
-                return $data->getKategori();
+                return @$data->kategori->nama;
                }
            ],
+         
             'sinopsis:ntext',
               [
               'attribute' => 'sampul',
@@ -69,15 +73,15 @@ $this->params['breadcrumbs'][] = $this->title;
               },
             ],
             [
-              'attribute' => 'berkas',
-              'format' =>'raw',
-              'value' => function ($model){
-                if ($model->berkas != '') {
-                    return Html::a($model->berkas,   ('/../upload/berkas/'));
-                }else{
-                  return '<div align="center"><h1>No Berkas</h1></div>';
-                }
-              },
+                'label' => 'berkas',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    if ($model->berkas != '') {
+                        return '<a href="' . Yii::$app->homeUrl . '/../upload/berkas/' . $model->berkas . '"><button class="glyphicon glyphicon-download-alt" size= "20px" type="submit"></button></div></a>';
+                    } else { 
+                        return '<div align="center"><h1>No File</h1></div>';
+                    }
+                },
             ],
         ],
     ]) ?>

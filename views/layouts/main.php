@@ -80,7 +80,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                     ],
                                       ["label" => "User", "url" => ["user/index"], "icon" => "user"],
                                        ["label" => "Petugas", "url" => ["petugas/index"], "icon" => "user"],
-                                    ["label" => "Logout", "url" => ["/site/login"], "icon" => "power-off"],
+                                    ["label" => "Logout", "url" => ["/site/logout"], "icon" => "power-off"],
                                 ],
                             ]
                         )

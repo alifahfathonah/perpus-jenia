@@ -64,13 +64,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 return $data->penerbit->nama;
                }
            ],
-           [
+            [
                'attribute' =>'id_kategori',
                'filter' => Kategori::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
                'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
-                return $data->getKategori();
+                return @$data->kategori->nama;
                }
            ],
 
