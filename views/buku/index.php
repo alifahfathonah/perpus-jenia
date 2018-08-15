@@ -21,7 +21,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Tambah Buku', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
         <?= Html::a('Export Word', ['buku/jadwal-pl'], ['class' => 'btn btn-round btn-danger']) ?>
+        <?= Html::a('Export PDF', ['site/export-pdf'], ['class' => 'btn btn-danger']) ?>
     </p>
+
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -66,11 +68,11 @@ $this->params['breadcrumbs'][] = $this->title;
            ],
             [
                'attribute' =>'id_kategori',
-               'filter' => Kategori::getList(),
+               // 'filter' => Kategori::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
                'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
-                return @$data->kategori->nama;
+                 return @$data->kategori->nama;
                }
            ],
 

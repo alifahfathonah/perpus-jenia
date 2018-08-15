@@ -77,12 +77,7 @@ class Buku extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Kategori::className(), ['id' => 'id_kategori']);
     }
-    
-    // public function getKategori()
-    // {
-    //     return $this->hasOne(Penerbit::className(), ['id' => 'id_kategori']);
-    // }
-    
+
     // public function getPenulis()
     // {
     //    $model = Penulis::findOne($this->id_penulis);
@@ -102,15 +97,15 @@ class Buku extends \yii\db\ActiveRecord
 //         return null;
 //        }
 //     }
-    // public function getKategori()
-    // {
-    //    $model = Kategori::findOne($this->id_kategori);
-    //    if ($model !==null) {
-    //      return $model->nama;
-    //    }else{
-    //     return null;
-    //    }
-    // }
+// public function getKategori()
+//     {
+//        $model = Kategori::findOne($this->id_kategori);
+//        if ($model !==null) {
+//          return $model->nama;
+//        }else{
+//         return null;
+//        }
+//     }
 
     //  public function getBuku()
     // {

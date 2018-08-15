@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Petugas */
 
-$this->title = 'Create Petugas';
+$this->title = 'Tambah Petugas';
 $this->params['breadcrumbs'][] = ['label' => 'Petugas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

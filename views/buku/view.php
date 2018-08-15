@@ -56,10 +56,9 @@ $this->params['breadcrumbs'][] = $this->title;
                'attribute' =>'id_kategori',
                'headerOptions' => ['style' => 'text-align:center;'],
                'value' => function($data){
-                return @$data->kategori->nama;
+            return @$data->kategori->nama;
                }
            ],
-         
             'sinopsis:ntext',
               [
               'attribute' => 'sampul',
