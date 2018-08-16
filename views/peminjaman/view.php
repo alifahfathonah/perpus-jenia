@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Peminjaman */
 
-$this->title = $model->id;
+$this->title = $model->anggota->nama;
 $this->params['breadcrumbs'][] = ['label' => 'Peminjaman', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'attribute' => "id_anggota",
             'value' => function($data){
-                return $data->getAnggota();
+                return $data->anggota->nama;
             }
         ],
             'tanggal_pinjam',

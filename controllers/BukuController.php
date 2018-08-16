@@ -13,6 +13,9 @@ use yii\web\ArrayHelper;
 use PhpOffice\PhpWord\IOfactory;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Converter;
+use PhpOffice\PhpSpreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 
 /**
  * BukuController implements the CRUD actions for Buku model.
@@ -334,4 +337,51 @@ foreach ($semuaBuku as $buku ) {
        $xmlWriter -> save($path);
        return $this -> redirect($path);
     }
+
+
+    public function actionExportExcel() {
+     
+    $spreadsheet = new PhpSpreadsheet\Spreadsheet();
+    $worksheet   = $spreadsheet->getActiveSheet();
+     
+    //Menggunakan Model
+
+    $database = Buku::find()
+    ->select('nama, tahun_terbit')
+    ->all();
+
+    $worksheet->setCellValue('A1', 'Judul Buku');
+    $worksheet->setCellValue('B1', 'Tahun Terbit');
+     
+    //JIka menggunakan DAO , gunakan QueryAll()
+     
+    /*
+     
+    $sql = "select kode_jafung,jenis_jafung from ref_jafung"
+     
+    $database = Yii::$app->db->createCommand($sql)->queryAll();
+     
+    */
+     
+    $database = \yii\helpers\ArrayHelper::toArray($database);
+    $worksheet->fromArray($database, null, 'A2');
+     
+    $writer = new Xlsx($spreadsheet);
+     
+    header('Content-Type: application/vnd.ms-excel');
+    header('Content-Disposition: attachment;filename="buku.xlsx"');
+    header('Cache-Control: max-age=0');
+    $writer->save('php://output');
+     
+    }
 }
+
+
+
+
+
+
+
+
+
+

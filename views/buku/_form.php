@@ -52,22 +52,6 @@ use dosamigos\tinymce\TinyMce;
             ],
         ]); ?>
 
-<?php if ($model->id_kategori == null) { ?>
-
-    <?= $form->field($model, 'id_kategori')->widget(Select2::classname(), [
-            'data' =>  Kategori::getList(),
-            'options' => [
-              'placeholder' => '- Pilih Kategori -',
-            ],
-            'pluginOptions' => [
-                'allowClear' => true
-            ],
-        ]); ?>
-
-
-
-<?php  }  ?>
-     
 
  <?= $form->field($model, 'sinopsis')->widget(TinyMce::className(), [
         'options' => ['rows' => 6],

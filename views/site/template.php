@@ -88,20 +88,17 @@ table {
    <th>Sampul</th>
   </tr>
  </thead>
- <?php
-  $i=1;
-  foreach($model as $data){echo'
+ <?php $i=1; foreach($model as $data) {  ?>
     <tr>
-     <td>'.$i.'</td>
-     <td>'.$data['nama'].'</td>
-     <td>'.$data['tahun_terbit'].'</td>
-     <td>'.$data['id_penerbit'].'</td>
-     <td>'.$data['id_kategori'].'</td>
-     <td>'.$data['id_penulis'].'</td>
-     <td><img src="'.Yii::$app->request->baseUrl.'/upload/sampul/'.$data['sampul'].'" width="100px"></td>
+    <td><?= $i ?></td>
+     <td><?= $data->nama ?></td>
+     <td><?= $data->tahun_terbit ?></td>
+     <td><?= @$data->penerbit->nama ?></td>
+     <td><?= @$data->kategori->nama ?></td>
+     <td><?= @$data->penulis->nama ?></td>
+     <td><img src="<?= Yii::$app->request->baseUrl.'/upload/sampul/'.$data['sampul'] ?>" width="100px"></td>
     </tr>
-   ';
-   $i++;
-  }
- ?>
+    
+ <?php $i++; } ?>
+
 </table>

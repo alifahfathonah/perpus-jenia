@@ -12,6 +12,8 @@ use PhpOffice\PhpWord\IOfactory;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Converter;
 use kartik\mpdf\Pdf;
+use PhpOffice\PhpSpreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 /**
  * KategoriController implements the CRUD actions for Kategori model.
@@ -330,5 +332,41 @@ $section->addTextBreak(1);
        $xmlWriter -> save($path);
        return $this -> redirect($path);
 }
+
+
+public function actionExportExcel() {
+     
+    $spreadsheet = new PhpSpreadsheet\Spreadsheet();
+    $worksheet   = $spreadsheet->getActiveSheet();
+     
+    //Menggunakan Model
+
+    $database = Kategori::find()
+    ->select('nama')
+    ->all();
+
+    $worksheet->setCellValue('A1', 'Kategori');
+  
+    //JIka menggunakan DAO , gunakan QueryAll()
+     
+    /*
+     
+    $sql = "select kode_jafung,jenis_jafung from ref_jafung"
+     
+    $database = Yii::$app->db->createCommand($sql)->queryAll();
+     
+    */
+     
+    $database = \yii\helpers\ArrayHelper::toArray($database);
+    $worksheet->fromArray($database, null, 'A2');
+     
+    $writer = new Xlsx($spreadsheet);
+     
+    header('Content-Type: application/vnd.ms-excel');
+    header('Content-Disposition: attachment;filename="kategori.xlsx"');
+    header('Cache-Control: max-age=0');
+    $writer->save('php://output');
+     
+    }
 
 }

@@ -11,7 +11,8 @@ use yii\filters\VerbFilter;
 use PhpOffice\PhpWord\IOfactory;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Converter;
-
+use PhpOffice\PhpSpreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 /**
  * PenerbitController implements the CRUD actions for Penerbit model.
  */
@@ -211,5 +212,42 @@ class PenerbitController extends Controller
        $xmlWriter -> save($path);
        return $this -> redirect($path);
     
+    }
+     public function actionExportExcel() {
+     
+    $spreadsheet = new PhpSpreadsheet\Spreadsheet();
+    $worksheet   = $spreadsheet->getActiveSheet();
+     
+    //Menggunakan Model
+
+    $database = Penerbit::find()
+    ->select('nama, alamat, telepon, email')
+    ->all();
+
+    $worksheet->setCellValue('A1', 'nama');
+    $worksheet->setCellValue('B1', 'alamat');
+    $worksheet->setCellValue('C1', 'telepon');
+    $worksheet->setCellValue('D1', 'email');
+  
+    //JIka menggunakan DAO , gunakan QueryAll()
+     
+    /*
+     
+    $sql = "select kode_jafung,jenis_jafung from ref_jafung"
+     
+    $database = Yii::$app->db->createCommand($sql)->queryAll();
+     
+    */
+     
+    $database = \yii\helpers\ArrayHelper::toArray($database);
+    $worksheet->fromArray($database, null, 'A2');
+     
+    $writer = new Xlsx($spreadsheet);
+     
+    header('Content-Type: application/vnd.ms-excel');
+    header('Content-Disposition: attachment;filename="penerbit.xlsx"');
+    header('Cache-Control: max-age=0');
+    $writer->save('php://output');
+     
     }
 }

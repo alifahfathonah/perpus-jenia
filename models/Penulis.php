@@ -86,6 +86,5 @@ public function getPenulisCount()
         return $this->hasMany(Buku::class, ['id_penulis' => 'id']);
     }
 
-
 }
 

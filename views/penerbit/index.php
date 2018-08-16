@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Tambah Penerbit', ['create'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Export Word', ['export-word'], ['class' => 'btn btn-round btn-danger']) ?>
+        <?= Html::a('Export Excel', ['penerbit/export-excel'], ['class' => 'btn btn-round btn-warning']) ?>
     </p>
 
     <?= GridView::widget([
