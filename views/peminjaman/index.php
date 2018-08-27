@@ -40,15 +40,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 return $data->getBuku();
                }
            ],
-             [
+              [
                'attribute' =>'id_anggota',
-               'filter' => Anggota::getList(),
+                'filter' => Anggota::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
                'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
-                return $data->getAnggota();
+                return $data->anggota->nama;
                }
-           ],
+            ],
             [
                'attribute' =>'tanggal_pinjam',
                'headerOptions' => ['style' => 'text-align:center;'],

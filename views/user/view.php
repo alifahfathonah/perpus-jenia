@@ -28,11 +28,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'username',
-            'password',
-            'id_anggota',
-            'id_petugas',
+              [
+               'attribute' =>'id_anggota',
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'value' => function($data){
+                return @$data->anggota->nama;
+               }
+            ],
+             [
+               'attribute' =>'id_petugas',
+               'headerOptions' => ['style' => 'text-align:center;'],
+               'value' => function($data){
+                return @$data->petugas->nama;
+               }
+            ],
             'id_user_role',
             'status',
         ],

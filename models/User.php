@@ -85,20 +85,19 @@ class User extends \yii\db\ActiveRecord  implements \yii\web\IdentityInterface
     }
     public function getAnggota()
     {
-       $model = Anggota::findOne($this->id_anggota);
-       if ($model !==null) {
-         return $model->nama;
-       }else{
-        return null;
-       }
+        return $this->hasOne(Anggota::className(), ['id' => 'id_anggota']);
     }
+    //  public function getPetugas()
+    // {
+    //    $model = Petugas::findOne($this->id_petugas);
+    //    if ($model !==null) {
+    //      return $model->nama;
+    //    }else{
+    //     return null;
+    //    }
+    // }
      public function getPetugas()
     {
-       $model = Petugas::findOne($this->id_petugas);
-       if ($model !==null) {
-         return $model->nama;
-       }else{
-        return null;
-       }
+        return $this->hasOne(Petugas::className(), ['id' => 'id_petugas']);
     }
 }

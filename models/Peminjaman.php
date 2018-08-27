@@ -68,19 +68,10 @@ class Peminjaman extends \yii\db\ActiveRecord
 
           //relasi
 
-    // public function getAnggota()
-    // {
-    //     $model = Anggota::findOne($this->id_anggota);
-    //     if ($model !== null) {
-    //         return $model->nama;
-    //     } else{
-    //         return null;
-    //     }
-
-    // }
-    public function getAnggota()
+   public function getAnggota()
     {
-         return $this->hasOne(Anggota::className(), ['id' => 'id_anggota']);
+        return $this->hasOne(Anggota::className(), ['id' => 'id_anggota']);
     }
+    
      
 }

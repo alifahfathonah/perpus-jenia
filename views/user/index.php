@@ -35,27 +35,27 @@ $this->params['breadcrumbs'][] = $this->title;
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center']
             ],
-            [
-                'attribute' => 'password',
-                'headerOptions' => ['style' => 'text-align:center;'],
-                'contentOptions' => ['style' => 'text-align:center']
-            ],
-              [
+            // [
+            //     'attribute' => 'password',
+            //     'headerOptions' => ['style' => 'text-align:center;'],
+            //     'contentOptions' => ['style' => 'text-align:center']
+            // ],
+             
+             [
                'attribute' =>'id_anggota',
-               'filter' => Anggota::getList(),
+               'filter' => Petugas::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
-               'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
-                return $data->getAnggota();
+                return @$data->anggota->nama;
                }
-           ],
+            ],
             [
                'attribute' =>'id_petugas',
                'filter' => Petugas::getList(),
                'headerOptions' => ['style' => 'text-align:center;'],
                'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
-                return $data->getPetugas();
+                return @$data->petugas->nama;
                }
            ],
             //'id_user_role',
