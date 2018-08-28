@@ -40,7 +40,18 @@ use app\models\Petugas;
 
     <?= $form->field($model, 'id_user_role')->textInput() ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+     <?= $form->field($model, 'status')->widget(Select2::classname(), [
+            'data' => function($data){
+                return $datalist[$this->status];
+               },
+            'options' => [
+              'placeholder' => '- Pilih Status -',
+            ],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]); ?>
+
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -100,4 +100,13 @@ class User extends \yii\db\ActiveRecord  implements \yii\web\IdentityInterface
     {
         return $this->hasOne(Petugas::className(), ['id' => 'id_petugas']);
     }
+    public function getStatus()
+    {
+        $datalist = [
+        '0' => 'tidak aktif',
+        '1' => 'aktif',
+        ];
+        return $datalist[$this->status];
+        }
+
 }
