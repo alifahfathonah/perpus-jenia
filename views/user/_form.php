@@ -38,7 +38,15 @@ use app\models\Petugas;
             ],
         ]); ?>
 
-    <?= $form->field($model, 'id_user_role')->textInput() ?>
+    <?= $form->field($model, 'id_user_role')->widget(Select2::classname(), [
+            'data' =>  UserRole::getList(),
+            'options' => [
+              'placeholder' => '- Masuk Sebagai? -',
+            ],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]); ?>
 
      <?= $form->field($model, 'status')->widget(Select2::classname(), [
             'data' => function($data){
@@ -60,3 +68,19 @@ use app\models\Petugas;
     <?php ActiveForm::end(); ?>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -75,6 +75,8 @@ class User extends \yii\db\ActiveRecord  implements \yii\web\IdentityInterface
     {
         return $this->authKey === $authKey;
     }
+
+
     public function findByUsername($username)
     {
         return self::findOne(['username' => $username]);
@@ -83,22 +85,19 @@ class User extends \yii\db\ActiveRecord  implements \yii\web\IdentityInterface
     {
         return self::findOne(['password' => $password]);
     }
+
+
     public function getAnggota()
     {
         return $this->hasOne(Anggota::className(), ['id' => 'id_anggota']);
     }
-    //  public function getPetugas()
-    // {
-    //    $model = Petugas::findOne($this->id_petugas);
-    //    if ($model !==null) {
-    //      return $model->nama;
-    //    }else{
-    //     return null;
-    //    }
-    // }
      public function getPetugas()
     {
         return $this->hasOne(Petugas::className(), ['id' => 'id_petugas']);
+    }
+     public function getUserRole()
+    {
+        return $this->hasOne(UserRole::className(), ['id' => 'id_user_role']);
     }
     public function getStatus()
     {

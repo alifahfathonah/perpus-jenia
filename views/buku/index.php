@@ -69,8 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
            ],
             [
                'attribute' =>'id_kategori',
-               // 'filter' => Kategori::getList(),
-               'headerOptions' => ['style' => 'text-align:center;'],
+                'headerOptions' => ['style' => 'text-align:center;'],
                'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
                  return @$data->kategori->nama;
