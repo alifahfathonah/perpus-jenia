@@ -117,7 +117,7 @@ class Buku extends \yii\db\ActiveRecord
     //    }
     // }
 
-    public function getCount()
+    public function getBukuCount()
     {
         return static::find()->count();
     }

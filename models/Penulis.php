@@ -37,6 +37,7 @@ class Penulis extends \yii\db\ActiveRecord
             [['nama'], 'required'],
             [['alamat'], 'string'],
             [['nama', 'telepon', 'email'], 'string', 'max' => 255],
+             ['email', 'unique'], // Membuat nama menjadi uniq atau di buat satu kali buat validasi di from.
         ];
     }
 

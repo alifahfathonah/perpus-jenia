@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
              [
                 'attribute' => 'tahun_terbit',
                 'format' => 'raw',
-                'headerOptions' => ['style' => 'text-align:center;'],
+                'headerOptions' => ['style' => 'text-align:center', 'width:80px;'],
                 'contentOptions' => ['style' => 'text-align:center']
             ],
              [
@@ -69,7 +69,8 @@ $this->params['breadcrumbs'][] = $this->title;
            ],
             [
                'attribute' =>'id_kategori',
-                'headerOptions' => ['style' => 'text-align:center;'],
+               'filter' => Kategori::getList(),
+              'headerOptions' => ['style' => 'text-align:center;'],
                'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
                  return @$data->kategori->nama;

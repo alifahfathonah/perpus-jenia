@@ -76,14 +76,4 @@ class Anggota extends \yii\db\ActiveRecord
        }
     }
 
-    //   public static function getList()
-    // {
-    //     return \yii\helpers\ArrayHelper::map(Standard::find()->all()
-    //         if (status_aktif==1 {
-    //             return 'Aktif';
-    //         }else {
-    //             return 'Tidak Aktif';
-    //         }
-    // }
-
 }

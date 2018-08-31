@@ -6,6 +6,7 @@ use app\models\Anggota;
 use app\models\Penulis;
 use app\models\Penerbit;
 use app\models\Kategori;
+use app\models\Peminjaman;
 use miloschuman\highcharts\Highcharts;
 use yiier\chartjs\ChartJs;
 // use dosamigos\chartjs\ChartJs;
@@ -13,72 +14,50 @@ use yiier\chartjs\ChartJs;
 
 $this->title = "Halaman Dashboard";
 ?>
-<div class="row">
-
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-green">
-            <div class="inner">
-                <h3>Buku</h3>
-
-                <h3>Jumlah: <?= Yii::$app->formatter->asInteger(Buku::getCount()); ?></h3>
+<div class="row top_tiles">
+             <!--  -->
+             
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-book"></i></div>
+                  <div class="count"><?= Yii::$app->formatter->asInteger(Buku::getBukuCount()); ?></div>
+                  <h3>Buku</h3>
+                  <p><?= Html::a('More Info', ['buku/index']) ?> <i class="fa fa-arrow-right"></i></p>
             </div>
-            <div class="icon">
-                <i class="fa fa-book"></i>
-            </div>
-            <a href="<?=Url::to(['buku/index']);?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div>
+
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-group"></i></div>
+                  <div class="count"><?= Yii::$app->formatter->asInteger(Anggota::getAnggotaCount()); ?></div>
+                  <h3>Anggota</h3>
+                  <p><?= Html::a('More Info', ['kategori/index']) ?> <i class="fa fa-arrow-right"></i></p>
+                </div>
+              </div>
 
 
- <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-purple">
-            <div class="inner">
-                <h3>Anggota</h3>
-
-                <h3>Jumlah: <?= Yii::$app->formatter->asInteger(Anggota::getAnggotaCount()); ?></h3>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-pencil"></i></div>
+                  <div class="count"><?= Yii::$app->formatter->asInteger(Penulis::getPenulisCount()); ?></div>
+                  <h3>Penulis</h3>
+                  <p><?= Html::a('More Info', ['penulis/index']) ?> <i class="fa fa-arrow-right"></i></p>
+                </div>
             </div>
-            <div class="icon">
-                <i class="fa fa-users"></i>
-            </div>
-            <a href="<?=Url::to(['anggota/index']);?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
 
-     <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-orange">
-            <div class="inner">
-                <h3>Penulis</h3>
-
-                <h3>Jumlah: <?= Yii::$app->formatter->asInteger(Penulis::getPenulisCount()); ?></h3>
+             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-comments"></i></div>
+                  <div class="count"><?= Yii::$app->formatter->asInteger(Peminjaman::getPeminjamanCount()); ?></div>
+                  <h3>Peminjaman</h3>
+                  <p><?= Html::a('More Info', ['peminjaman/index']) ?> <i class="fa fa-arrow-right"></i></p>
+                </div>
             </div>
-            <div class="icon">
-                <i class="fa fa-user"></i>
-            </div>
-            <a href="<?=Url::to(['penulis/index']);?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
 
-     <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-red">
-            <div class="inner">
-                <h3>Penerbit</h3>
-
-                <h3>Jumlah: <?= Yii::$app->formatter->asInteger(Penerbit::getPenerbitCount()); ?></h3>
             </div>
-            <div class="icon">
-                <i class="fa fa-user"></i>
-            </div>
-            <a href="<?=Url::to(['penerbit/index']);?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-</div>
 
+
+ 
     <!-- ====GRAFIK=== -->
   <!--   <div class="row"> -->
     <div class="col-sm-6">

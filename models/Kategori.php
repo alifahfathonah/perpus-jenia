@@ -32,6 +32,7 @@ class Kategori extends \yii\db\ActiveRecord
     {
         return [
             [['nama'], 'required'],
+            ['nama', 'unique'], // Membuat nama menjadi uniq atau di buat satu kali buat validasi di from.
             [['nama'], 'string', 'max' => 255],
         ];
     }

@@ -53,8 +53,12 @@ class Peminjaman extends \yii\db\ActiveRecord
         ];
     }
 
-        //relasi
-
+        
+    public function getPeminjamanCount()
+    {
+        return static::find()->count();
+    }
+//relasi
     public function getBuku()
     {
         $model = Buku::findOne($this->id_buku);
