@@ -61,21 +61,22 @@ class Peminjaman extends \yii\db\ActiveRecord
 //relasi
     public function getBuku()
     {
-        $model = Buku::findOne($this->id_buku);
-        if ($model !== null) {
-            return $model->nama;
-        } else{
-            return null;
-        }
-
+        return $this->hasOne(Buku::className(), ['id' => 'id_buku']);
     }
 
-          //relasi
+//relasi
 
    public function getAnggota()
     {
         return $this->hasOne(Anggota::className(), ['id' => 'id_anggota']);
     }
+
+    // public function getDate()
+    // {
+    //      $date = 'dd-mm-yy';
+    //     $setting = explode(" ", $date);
+    //         echo $[5];
+    // }
     
      
 }

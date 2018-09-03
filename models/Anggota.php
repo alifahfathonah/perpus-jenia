@@ -65,15 +65,4 @@ class Anggota extends \yii\db\ActiveRecord
         ];
     }
 
-
-     public function getAnggota()
-    {
-       $model = Anggota::findOne($this->id_buku);
-       if ($model !==null) {
-         return $model->nama;
-       }else{
-        return null;
-       }
-    }
-
 }

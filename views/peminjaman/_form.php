@@ -35,7 +35,7 @@ use app\models\Anggota;
             ],
         ]); ?>
 
-    <?= $form->field($model, 'tanggal_pinjam')->widget(DatePicker::className(), [
+      <?= $form->field($model, 'tanggal_pinjam')->widget(DatePicker::className(), [
                 'removeButton' => false,
                 'value' => date('Y-m-d'),
                 'options' => ['placeholder' => 'Tanggal Pinjam'],
@@ -44,7 +44,8 @@ use app\models\Anggota;
                     'format' => 'yyyy-mm-dd'
                 ]
         ]) ?>
- <?= $form->field($model, 'tanggal_kembali')->widget(DatePicker::className(), [
+
+   <?= $form->field($model, 'tanggal_kembali')->widget(DatePicker::className(), [
                 'removeButton' => false,
                 'value' => date('Y-m-d'),
                 'options' => ['placeholder' => 'Tanggal Kembali'],
@@ -53,6 +54,7 @@ use app\models\Anggota;
                     'format' => 'yyyy-mm-dd'
                 ]
         ]) ?>
+
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

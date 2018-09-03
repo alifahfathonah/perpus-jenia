@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'nama')->textInput(['maxlength' => true , 'class'=>'col-md-6 col-sm-6 col-xs-12 form-group has-feedback', 'id'=>'inputSuccess2', 'placeholder'=>'Nama Kategori', 'span class'=>'fa fa-user form-control-feedback left']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

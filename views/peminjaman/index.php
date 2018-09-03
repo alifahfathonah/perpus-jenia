@@ -16,10 +16,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+<?php
+$nama = "Hakko,Bio,Richard";
+$arraynama = explode(",", $nama);
+echo $arraynama[0];
+?>
     <p>
         <?= Html::a('Tambah Peminjaman', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+  
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -37,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                'headerOptions' => ['style' => 'text-align:center;'],
                'contentOptions' => ['style' => 'text-align:center'],
                'value' => function($data){
-                return $data->getBuku();
+                return $data->buku->nama;
                }
            ],
               [
@@ -51,11 +56,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                'attribute' =>'tanggal_pinjam',
+               'format' =>'date',
                'headerOptions' => ['style' => 'text-align:center;'],
                'contentOptions' => ['style' => 'text-align:center']
            ],
+
+          
             [
                'attribute' =>'tanggal_kembali',
+               'format' =>'date',
                'headerOptions' => ['style' => 'text-align:center;'],
                'contentOptions' => ['style' => 'text-align:center']
            ],

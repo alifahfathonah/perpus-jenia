@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
              [
             'attribute' => "id_buku",
             'value' => function($data){
-                return $data->getBuku();
+                return $data->buku->nama;
             }
         ],
             
